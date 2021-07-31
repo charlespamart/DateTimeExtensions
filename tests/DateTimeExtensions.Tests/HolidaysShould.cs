@@ -12,6 +12,7 @@ namespace DateTimeExtensions.Tests
         public void ReturnsTrueOnHoliday(int year, int month, int day)
         {
             var dateTime = new DateTime(year, month, day);
+            
             var result = Holidays.IsHoliday(dateTime);
 
             Assert.True(result);
@@ -22,6 +23,7 @@ namespace DateTimeExtensions.Tests
         public void ReturnsFalseOnNonHoliday(int year, int month, int day)
         {
             var dateTime = new DateTime(year, month, day);
+            
             var result = Holidays.IsHoliday(dateTime);
 
             Assert.False(result);
@@ -32,6 +34,7 @@ namespace DateTimeExtensions.Tests
         public void ReturnsTrueOnSunday(int year, int month, int day)
         {
             var dateTime = new DateTime(year, month, day);
+            
             var result = Holidays.IsSunday(dateTime);
 
             Assert.True(result);
@@ -42,6 +45,7 @@ namespace DateTimeExtensions.Tests
         public void ReturnsFalseOnNotSunday(int year, int month, int day)
         {
             var dateTime = new DateTime(year, month, day);
+            
             var result = Holidays.IsSunday(dateTime);
 
             Assert.False(result);
@@ -55,6 +59,7 @@ namespace DateTimeExtensions.Tests
         public void ReturnsTrueOnSundayOrHoliday(int year, int month, int day)
         {
             var dateTime = new DateTime(year, month, day);
+            
             var result = Holidays.IsHolidayOrSunday(dateTime);
             
             Assert.True(result);
@@ -65,6 +70,7 @@ namespace DateTimeExtensions.Tests
         public void ReturnsFalseOnNonSundayOrNonHoliday(int year, int month, int day)
         {
             var dateTime = new DateTime(year, month, day);
+            
             var result = Holidays.IsHolidayOrSunday(dateTime);
             
             Assert.False(result);
@@ -77,6 +83,7 @@ namespace DateTimeExtensions.Tests
         public void ReturnsEasterDayForAYear(int year)
         {
             var result = Holidays.GetEasterDay(year);
+            
             var expected = DateTimeExtensionsHelpers.GetEasterDateByYear[year];
 
             Assert.Equal(result.Year, expected.Year);
@@ -91,6 +98,7 @@ namespace DateTimeExtensions.Tests
         public void ReturnsAscensionDayForAYear(int year)
         {
             var result = Holidays.GetAscensionDay(year);
+            
             var expected = DateTimeExtensionsHelpers.GetAscensionDateByYear[year];
 
             Assert.Equal(result.Year, expected.Year);
@@ -105,6 +113,7 @@ namespace DateTimeExtensions.Tests
         public void ReturnsWhitDayForAYear(int year)
         {
             var result = Holidays.GetWhitDay(year);
+            
             var expected = DateTimeExtensionsHelpers.GetWhitDateByYear[year];
 
             Assert.Equal(result.Year, expected.Year);
