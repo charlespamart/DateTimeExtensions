@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace DateTimeExtensions
 {
-    public class Holidays
+    public static class Holidays
     {
         public static bool IsSunday(DateTime dateTime)
         {
