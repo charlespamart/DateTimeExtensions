@@ -20,7 +20,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\DateTimeExtensions\DateTimeExtensions.csproj" />
+      <ProjectReference Include="..\..\src\DateTimeExtensions\DateTimeExtensions.csproj" />
     </ItemGroup>
 
 </Project>
