@@ -13,9 +13,9 @@ namespace DateTimeExtensions.Tests
         {
             var dateTime = new DateTime(year, month, day);
             
-            var result = Holidays.IsHoliday(dateTime);
+            var sut = Holidays.IsHoliday(dateTime);
 
-            Assert.True(result);
+            Assert.True(sut);
         }
 
         [Theory]
@@ -24,9 +24,9 @@ namespace DateTimeExtensions.Tests
         {
             var dateTime = new DateTime(year, month, day);
             
-            var result = Holidays.IsHoliday(dateTime);
+            var sut = Holidays.IsHoliday(dateTime);
 
-            Assert.False(result);
+            Assert.False(sut);
         }
 
         [Theory]
@@ -35,9 +35,9 @@ namespace DateTimeExtensions.Tests
         {
             var dateTime = new DateTime(year, month, day);
             
-            var result = Holidays.IsSunday(dateTime);
+            var sut = Holidays.IsSunday(dateTime);
 
-            Assert.True(result);
+            Assert.True(sut);
         }
 
         [Theory]
@@ -46,9 +46,9 @@ namespace DateTimeExtensions.Tests
         {
             var dateTime = new DateTime(year, month, day);
             
-            var result = Holidays.IsSunday(dateTime);
+            var sut = Holidays.IsSunday(dateTime);
 
-            Assert.False(result);
+            Assert.False(sut);
         }
         
         [Theory]
@@ -60,9 +60,9 @@ namespace DateTimeExtensions.Tests
         {
             var dateTime = new DateTime(year, month, day);
             
-            var result = Holidays.IsHolidayOrSunday(dateTime);
+            var sut = Holidays.IsHolidayOrSunday(dateTime);
             
-            Assert.True(result);
+            Assert.True(sut);
         }
         
         [Theory]
@@ -71,54 +71,54 @@ namespace DateTimeExtensions.Tests
         {
             var dateTime = new DateTime(year, month, day);
             
-            var result = Holidays.IsHolidayOrSunday(dateTime);
+            var sut = Holidays.IsHolidayOrSunday(dateTime);
             
-            Assert.False(result);
+            Assert.False(sut);
         }
 
         [Theory]
         [InlineData(2021)]
         [InlineData(2022)]
         [InlineData(2023)]
-        public void ReturnsEasterDayForAYear(int year)
+        public void ReturnsEasterDayForAGivenYear(int year)
         {
-            var result = Holidays.GetEasterDay(year);
+            var sut = Holidays.Easter(year);
             
             var expected = DateTimeExtensionsHelpers.GetEasterDateByYear[year];
 
-            Assert.Equal(result.Year, expected.Year);
-            Assert.Equal(result.Month, expected.Month);
-            Assert.Equal(result.Day, expected.Day);
+            Assert.Equal(expected.Year, sut.Year);
+            Assert.Equal(expected.Month, sut.Month);
+            Assert.Equal(expected.Day, sut.Day);
         }
 
         [Theory]
         [InlineData(2021)]
         [InlineData(2022)]
         [InlineData(2023)]
-        public void ReturnsAscensionDayForAYear(int year)
+        public void ReturnsAscensionDayForAGivenYear(int year)
         {
-            var result = Holidays.GetAscensionDay(year);
+            var sut = Holidays.Ascension(year);
             
             var expected = DateTimeExtensionsHelpers.GetAscensionDateByYear[year];
 
-            Assert.Equal(result.Year, expected.Year);
-            Assert.Equal(result.Month, expected.Month);
-            Assert.Equal(result.Day, expected.Day);
+            Assert.Equal(expected.Year, sut.Year);
+            Assert.Equal(expected.Month, sut.Month);
+            Assert.Equal(expected.Day, sut.Day);
         }
 
         [Theory]
         [InlineData(2021)]
         [InlineData(2022)]
         [InlineData(2023)]
-        public void ReturnsWhitDayForAYear(int year)
+        public void ReturnsWhitDayForAGivenYear(int year)
         {
-            var result = Holidays.GetWhitDay(year);
+            var sut = Holidays.Whit(year);
             
             var expected = DateTimeExtensionsHelpers.GetWhitDateByYear[year];
 
-            Assert.Equal(result.Year, expected.Year);
-            Assert.Equal(result.Month, expected.Month);
-            Assert.Equal(result.Day, expected.Day);
+            Assert.Equal(expected.Year, sut.Year);
+            Assert.Equal(expected.Month, sut.Month);
+            Assert.Equal(expected.Day, sut.Day);
         }
     }
 }
